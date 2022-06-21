@@ -41,11 +41,6 @@
                                             <form th:method="POST" th:action="@{/admin/add}" th:object="${user}" class="text-center">
                                                 <div class="col">
                                                     <div class="col-auto">
-                                                        <label for="username">Ник</label>
-                                                        <input type="text" class="form-control mb-2" id="username" th:field="*{username}"
-                                                               placeholder="Ник">
-                                                    </div>
-                                                    <div class="col-auto">
                                                         <label for="firstName">Имя</label>
                                                         <input type="text" class="form-control mb-2" id="firstName" th:field="*{firstName}"
                                                                placeholder="Имя">
@@ -54,6 +49,16 @@
                                                         <label for="lastName">Фамилия</label>
                                                         <input type="text" class="form-control mb-2" id="lastName" th:field="*{lastName}"
                                                                placeholder="Фамилия">
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <label for="age">Age</label>
+                                                        <input type="text" class="form-control mb-2" id="age" th:field="*{age}"
+                                                               placeholder="Age">
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <label for="email">Email</label>
+                                                        <input type="email" class="form-control mb-2" id="email" th:field="*{email}"
+                                                               placeholder="Email">
                                                     </div>
                                                     <div class="col-auto">
                                                         <label for="password">Пароль</label>

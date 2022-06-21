@@ -41,10 +41,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Optional<User> findByName(String username) {
+    public Optional<User> findByEmail(String email) {
         return Optional.of(entityManager
-                .createQuery("select u from User as u where u.username = :username", User.class)
-                .setParameter("username", username)
+                .createQuery("select u from User as u where u.email = :email", User.class)
+                .setParameter("email", email)
                 .getSingleResult());
     }
 }

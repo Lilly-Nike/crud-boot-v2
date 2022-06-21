@@ -1,5 +1,6 @@
 package ru.kata.spring.boot_security.demo.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,16 +12,11 @@ import java.security.Principal;
 
 @Controller
 @RequestMapping("/")
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
     private final RoleService roleService;
-
-    public UserController(UserService userService,
-                          RoleService roleService) {
-        this.userService = userService;
-        this.roleService = roleService;
-    }
 
     @GetMapping("/login")
     public String getLoginPage() {
@@ -38,7 +34,7 @@ public class UserController {
     @GetMapping("/user")
     public String getUserPage(Model model, Principal principal) {
         model.addAttribute("user_auth", principal);
-        model.addAttribute("user", userService.getUserByUsername(principal.getName()));
+        model.addAttribute("user", userService.getUserByEmail(principal.getName()));
         return "user";
     }
 
